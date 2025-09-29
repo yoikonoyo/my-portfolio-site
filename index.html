@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+  /* セクション全体（About Meと統一） */
+section {
+  margin-bottom: 3rem;
+  padding: 1.5rem 1rem;               /* 上下の高さを調整 */
+  background-color: #f7f7f7;          /* 薄いグレー */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* 見出し装飾 */
+section h2 {
+  font-size: 1.6rem;
+  border-left: 5px solid #4CAF50;
+  padding-left: 0.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+section h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #4CAF50;
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+/* 段落装飾 */
+section p {
+  line-height: 1.6;
+  color: #444; 
+}
+
+/* スキルリスト */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.95rem;
+  margin: 0;   /* 上下余白はsectionに任せる */
+  padding: 0;
+}
+
+.skill-list span {
+  background: none;   /* 背景なし */
+  padding: 0;         /* パディングなし */
+  border: none;       /* 枠線なし */
+  border-radius: 0;
+  color: #444;        /* 段落と同じ色 */
+}
+
+   .works {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: left;
+      padding: 1rem;
+    }
+    .card img {
+      width: 100%;    /* カード幅に合わせる */
+      height: 180px;       /* 固定高さ */
+      object-fit: contain; /* 切らずに全部表示、余白ができる */
+      border-radius: 4px;
+      background: #f9f9f9;   /* 余白が自然に見える背景色 */
+    }
+    .work-img {
+      width: 90%;          /* YouTube用に少し小さく調整 */
+      max-width: 200px;    /* 任意で上限 */
+      height: 180px;       /* 他カードと同じ高さ */
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    } 
+    
+    .card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+    .card p {
+      font-size: 0.8rem;
+    }
+    .card a {
+      display: block;           /* ブロックにして幅全体を使う */
+      width: max-content;       /* コンテンツ幅だけにする */
+      margin: 0.5rem auto 0;    /* 上余白0.5rem、左右自動で中央寄せ、下0 */
+      padding: 0.5rem 1rem;
+      background: #4CAF50; 
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      text-align: center; /* ボタンを中央寄せ */
+    }
+    .card a:hover {
+      background: #45a049;
+    }
+    /* 色鉛筆画ギャラリー */
+   
+  .art-works {
+  display: flex;             /* 横並び */
+  flex-wrap: wrap;           /* はみ出したら次の行へ */
+  gap: 1.5rem;               /* 作品間の余白 */
+  justify-content: center;   /* 中央寄せ（お好みで left にしてもOK） */
+}
+
+.art-card {
+  width: 250px;              /* 各作品の幅を固定 */
+  box-sizing: border-box;    /* パディングやボーダーを含めて幅を計算 */
+  text-align: center;
+}
+
+.art-card img {
+  width: 100%;               /* カード内でぴったり */
+  height: auto;              /* 比率を保つ */
+  display: block;
+  border-radius: 8px;        /* 角丸に */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);  /* 影 */
+  /*額を付けてみた*/
+  /* 追加部分：枠線 */
+ /* さりげない枠線 */
+  border: 2px solid rgba(100, 100, 100, 0.4);  /* 薄めの半透明グレー */
+  
+  /* 枠の外側にほんのり影を追加 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* 枠内の背景色（画像が透明の場合におすすめ） */
+  background-color: #fff;
+
+  /* 枠と画像の間に少し余白 */
+  padding: 3px;
+}
+.art-card img:hover {
+  transform: translateY(-5px);               /* 少し浮き上がる */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);   /* 影を強める */
+  filter: brightness(1.05);                  /* 少し明るくなる */
+  transition: all 0.3s ease;                /* 滑らかに変化 */
+}
+@media (max-width: 800px) {
+  .art-card img {
+    padding: 2px;   /* 少し余白を減らす */          
+    border-radius: 6px;     /* 少し小さく */  
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 影を軽く */
+  }
+
+  .art-card img:hover {
+    transform: none;      /* スマホでは浮かない */    
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 軽い影のみ */
+    filter: none;  /* 明るさ変化なし */           
+  }
+}
+    footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <p>Web制作と表現活動で未来を彩る</p>
+  </header>
+
+  <main>
+    <!-- 自己紹介 -->
+    <section>
+      <h2>About Me</h2>
+      <p>相模原市在住。職業訓練校のWEBサイト制作オンライン科3カ月コース（2025年7月1日〜9月30日）で、HTML/CSS、Illustrator、Photoshopを初めて学びました。<br>作品を通して、シンプルで伝わるデザインを目指しています。</p>
+    </section> 
+     
+     <!-- スキル -->
+    <section>
+       <h2>My Skill</h2>
+        <div class="skill-list">
+         <span>HTML</span>
+         <span>CSS</span>
+         <span>Illustrator</span>
+         <span>Canva</span>
+         <span>Photoshop</span>
+         <span>Word</span>
+         <span>Excel</span>
+        </div>
+     </section> 
+   
+   
+    <!-- 作品紹介 -->
+    <section>
+      <h2>Works</h2>
+      <div class="works">
+        <!-- Web作品1 -->
+        <div class="card">
+          <img src="images/vivid.png" alt="Webサイト作品1">
+          <h3>Webサイト作品 1</h3>
+          <p>受講1か月目に制作したWebサイトです。「忙しくてゆっくり食事が摂れない」「栄養バランスや健康が気になる」そんな方をターゲットにした、手軽で美味しいスムージー店。お店の名前は、「元気」や「明るい」を意味する「Vivid」です。健康的な爽やかさと心地よさを表現したいと思いました。レスポンシブにも対応。イラストは自作、写真はAI生成画像を編集しました。</p>
+          <a href="https://yoikonoyo.github.io/vivid-site/" target="_blank">サイトを見る</a>
+        </div>
+
+        <!-- Web作品2 -->
+        <div class="card">
+          <img src="images/amayui.png" alt="Webサイト作品2">
+          <h3>Webサイト作品 2</h3>
+          <p>卒業制作作品です。自治体でも観光協会でもないNPOのサイトというスタンスで、交流型振興を目指し、島の知名度の向上、交流プログラムの参加募集、容易なコンタクトの窓口となるように組み立てました。その目的を達成するとともに、シンプルながらも楽しめるサイト、ユーザビリティーを意識したサイトです。アイコンはIllustratorで制作、画像はCanvaで編集しました。</p>
+          <a href="https://yoikonoyo.github.io/amayui-island/" target="_blank">サイトを見る</a>
+        </div>
+
+        <!-- YouTube作品 -->
+        <div class="card">
+          <img src="images/youtube-thumb.png" alt="YouTube作品" class="work-img" >
+          <h3>オリジナル曲</h3>
+          <p>YouTubeに公開したオリジナル曲です。楽器も弾けない、コードも読めない、音程もあやしい…そんな“音楽三重苦”の私が初めて作った曲です。ふいに頭に浮かんだこのメロディーを外の世界に映す手段は、私の音痴な歌声だけ。AIの力を借りても、完璧な再現にはなりませんでしたが、思い出として、どこでも聴けるようにYouTubeにアップしました。歌詞字幕等はCanvaで編集しました。</p>
+          <a href="https://www.youtube.com/watch?v=Q9W_rx4-m2g&t=1s" target="_blank">動画を見る</a>
+        </div>
+       </div> <!--.works を閉じる！ -->
+      </section>
+     
+      <!--  Gallory セクションを .works の外に出す -->
+        <!-- 色鉛筆ギャラリー -->
+        <section>
+           <h2>Gallory</h2>
+           <p>ちょっとしたプレゼントに添えるために描いた色鉛筆画です。 </p>
+            <div class="art-works">
+              <!-- 作品1 -->
+              <div class="art-card">
+                <img src="images/chatterbox.png" alt="色鉛筆画1">
+              </div>
+              <!-- 作品2 -->
+              <div class="art-card">
+                <img src="images/concert.png" alt="色鉛筆画2">
+              </div>
+              <!-- 作品3 -->
+              <div class="art-card">
+                <img src="images/movie.png" alt="色鉛筆画3">
+              </div>
+              <!-- 作品4 -->
+              <div class="art-card">
+                <img src="images/frends2.png" alt="色鉛筆画4">
+              </div>
+              <!-- 作品5 -->
+              <div class="art-card">
+                <img src="images/bookmountain.png" alt="色鉛筆画5">
+              </div>
+              <!-- 作品6 -->
+              <div class="art-card">
+                <img src="images/Phonics-mountain.png" alt="色鉛筆画5">
+              </div>
+            </div>
+         </section>
+
+    <!-- 連絡先 -->
+    <section>
+      <h2>Contact</h2>
+      <p>Email: yoikonoyo@example.com</p>
+      <p>YouTube: <a href="" target="_blank">チャンネルはこちら</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Yoiko no “Yo”</p>
+  </footer>
+</body>
+</html>
